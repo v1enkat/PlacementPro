@@ -40,8 +40,17 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((err) => console.error(err));
 
 
-app.get("/", (req, res) => res.send("Running!"));
-
+    app.get("/", (req, res) => {
+        res.render("welcome", {
+          title: "Welcome to NIT Agartala",
+          logoUrl: "/images/logo.jpeg",
+          logoAlt: "NIT Agartala Logo",
+          heading: "National Institute of Technology Agartala",
+          websiteUrl: "https://www.nita.ac.in",
+          websiteText: "NIT Agartala"
+        });
+      });
+      
  
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));

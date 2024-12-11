@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e90ff, #87cefa);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    img {
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    footer a {
+      color: #ffdb4d;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #ff5733;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #c70039;
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="<%= logoUrl %>" alt="<%= logoAlt %>">
+    <h1><%= heading %></h1>
+  </header>
+   <form action="/login" method="get">
+    <button >Enter-&gt;</button>
+   </form>
+  <footer>
+    <p>Visit our official website: <a href="<%= websiteUrl %>" target="_blank"><%= websiteText %></a></p>
+  </footer>
+</body>
+</html>
