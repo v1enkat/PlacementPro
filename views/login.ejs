@@ -1,50 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NITA</title>
-  </head>
-  <body>
-    <div>
-      <input type="button" value="Sign-up" onclick="shiftToSignUp()" />
-      <input type="button" value="Login" onclick="shiftToLogin()" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e90ff, #87cefa);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    img {
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    footer a {
+      color: #ffdb4d;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #ff5733;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #c70039;
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .forms-wrapper {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .form-container {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      color: #333;
+      width: 300px;
+      text-align: left;
+    }
+
+    .form-container label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .form-container input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      background-color: #1e90ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container input[type="submit"]:hover {
+      background-color: #1c7ed6;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1e90ff;
+    }
+    .form-container {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  color: #333;
+  width: 300px;
+  text-align: left;
+  padding: 30px 40px;
+}
+.forms-wrapper {
+  display: flex;
+  gap: 100px; /* Adjust this value for more or less space */
+  justify-content: center;
+}
+  </style>
+</head>
+<body>
+
+
+  <div class="forms-wrapper">
+    <div class="form-container">
+      <h2>Sign-Up</h2>
+      <form action="/student/register" method="post">
+        <label for="user-name">User name</label>
+        <input type="text" name="fullname" required />
+
+        <label for="branch">Branch</label>
+        <input type="text" name="branch" required />
+
+        <label for="email-inp">E-mail</label>
+        <input type="email" name="email" required />
+
+        <label for="pass-inp">Create-Password</label>
+        <input type="password" name="password" required />
+
+        <input type="submit" value="Sign-up" />
+      </form>
     </div>
 
-    <div>
-      <!-- Sign-up Form -->
-      <div>
-        <form action="/student/register" method="post">
-          <div>
-            <label for="user-name">User name</label>
-            <input type="text" name="fullname" required />
-            <label for="branch">Branch</label>
-            <input type="text" name="branch" required />
-            <label for="email-inp">E-mail</label>
-            <input type="email" name="email" required />
-          </div>
-          <div>
-            <label for="pass-inp">Create-Password</label><br />
-            <input type="password" name="password" required /><br />
-            <input type="submit" value="Sign-up" />
-          </div>
-        </form>
-      </div>
+    <div class="form-container">
+      <h2>Login</h2>
+      <form action="/student/login" method="post">
+        <label for="email-inp">E-mail</label>
+        <input type="email" name="email" required />
 
-      <!-- Login Form -->
-      <div>
-        <form action="/student/login" method="post">
-          <div>
-            <label for="email-inp">E-mail</label>
-            <input type="email" name="email" required />
-          </div>
+        <label for="pass-inp">Password</label>
+        <input type="password" name="password" required />
 
-          <label for="pass-inp">Password</label>
-          <input type="password" name="password" required />
-
-          <input type="submit" value="Login" />
-        </form>
-      </div>
+        <input type="submit" value="Login" />
+      </form>
     </div>
-  </body>
+  </div>
+
+</body>
 </html>
