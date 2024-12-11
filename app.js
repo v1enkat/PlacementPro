@@ -12,6 +12,8 @@ const studentModel = require(path.join(__dirname, "models", "student-model"));
 // requiring all the routes's-->
 const indexRouter = require(path.join(__dirname, "routes", "index"));
 const studentRouter = require(path.join(__dirname, "routes", "studentrouter"))
+const createcompany = require(path.join(__dirname, "routes", "createcompany"));
+const login = require(path.join(__dirname, "routes", "login"));
 
 
 
@@ -27,6 +29,8 @@ app.set('views', path.join(__dirname, 'views'));
 //using routes-->
 app.use("/index",indexRouter);
 app.use("/student",studentRouter);
+app.use("/createcompany",createcompany);
+app.use("/login",login);
 
 
 
