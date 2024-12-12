@@ -11,7 +11,7 @@
         }
 
         nav {
-            background-color: #3b7bdc;
+            background-color: #2b84f9;
             color: #fff;
             padding: 10px 20px;
             display: flex;
@@ -88,6 +88,33 @@
         .container a:hover {
             background-color: #0056b3;
         }
+
+        .branch-selector {
+            margin-top: 20px;
+        }
+
+        .branch-selector select {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .branch-selector button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .branch-selector button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -104,7 +131,26 @@
     </nav>
 
     <div class="container">
-        <a href="/createcompany">Create Company</a>
+
+        <div class="branch-selector">
+            <label for="branch">Select Branch:</label>
+            <select id="branch" name="branch">
+                <option value="cse">Computer Science</option>
+                <option value="ece">Electronics and Communication</option>
+                <option value="mech">Mechanical Engineering</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="ee">Electrical Engineering</option>
+                <option value="bio">BioEngineering</option>
+            </select>
+            <button onclick="goToBranch()">Go</button>
+        </div>
     </div>
+
+    <script>
+        function goToBranch() {
+            const branch = document.getElementById('branch').value;
+            window.location.href = `/branch/${branch}`;
+        }
+    </script>
 </body>
 </html>
