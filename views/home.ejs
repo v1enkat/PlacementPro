@@ -141,23 +141,26 @@
 
         <div class="branch-selector">
             <label for="branch">Select Branch:</label>
-            <select id="branch" name="branch">
-                <option value="cse">Computer Science</option>
-                <option value="ece">Electronics and Communication</option>
-                <option value="mech">Mechanical Engineering</option>
-                <option value="civil">Civil Engineering</option>
-                <option value="ee">Electrical Engineering</option>
-                <option value="bio">BioEngineering</option>
+            <select id="branch" name="branch" onchange="updateLink()">
+                <option value="CSE">Computer Science</option>
+                <option value="ECE">Electronics and Communication</option>
+                <option value="MECH">Mechanical Engineering</option>
+                <option value="CIVIL">Civil Engineering</option>
+                <option value="EE">Electrical Engineering</option>
+                <option value="BIO">BioEngineering</option>
             </select>
-            <button onclick="goToBranch()">Go</button>
+            <!-- Default href to the first option -->
+            <a id="branchLink" href="/branch/cse">Go</a>
         </div>
     </div>
-
+    
     <script>
-        function goToBranch() {
+        function updateLink() {
             const branch = document.getElementById('branch').value;
-            window.location.href = `/branch/${branch}`;
+            const link = document.getElementById('branchLink');
+            link.href = `/branch/${branch}`;
         }
     </script>
+    
 </body>
 </html>

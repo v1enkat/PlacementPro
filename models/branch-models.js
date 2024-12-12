@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const companySchema = new mongoose.Schema({
     CompanyName: { type: String, required: true },
     CompanyCode: { type: String, required: true },
-    Branches: { type: [String], required: true }, 
+    Branches: { type: String, required: true }, 
     Role: String,
     Description: String,
     Location: String,
