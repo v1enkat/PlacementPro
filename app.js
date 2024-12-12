@@ -14,7 +14,7 @@ const indexRouter = require(path.join(__dirname, "routes", "index"));
 const studentRouter = require(path.join(__dirname, "routes", "studentrouter"))
 const createcompany = require(path.join(__dirname, "routes", "createcompany"));
 const login = require(path.join(__dirname, "routes", "login"));
-
+const branch = require(path.join(__dirname, "routes", "branch"));
 
 
 app.use(express.json());
@@ -31,7 +31,7 @@ app.use("/index",indexRouter);
 app.use("/student",studentRouter);
 app.use("/createcompany",createcompany);
 app.use("/login",login);
-
+app.use("/branch",branch);
 
 
 
