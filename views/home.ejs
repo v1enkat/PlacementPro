@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect</title>
     <style>
         body {
             margin: 0;
@@ -45,12 +46,6 @@
             font-size: 1rem;
             transition: color 0.3s ease;
         }
-        h3{
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
 
         nav ul li a:hover {
             color: #ffdb4d;
@@ -81,22 +76,63 @@
             color: #333;
         }
 
-        .container a {
-            text-decoration: none;
-            font-size: 1.2rem;
+        .features {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            color: #2b84f9;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .feature-card button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
             color: #fff;
             background-color: #007BFF;
-            padding: 10px 20px;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        .container a:hover {
+        .feature-card button:hover {
             background-color: #0056b3;
         }
 
         .branch-selector {
-            margin-top: 20px;
+            margin-top: 74px;
+        }
+
+        .branch-selector label {
+            font-size: 1.2rem;
+            margin-right: 10px;
         }
 
         .branch-selector select {
@@ -121,10 +157,25 @@
         .branch-selector button:hover {
             background-color: #218838;
         }
+        .footer {
+            background-color: #2b84f9;
+            color: #fff;
+            text-align: center;
+            padding: 18px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
     <nav>
+        <div class="logo">CampusConnect</div>
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
@@ -132,12 +183,37 @@
             <li><a href="/contact">Contact</a></li>
         </ul>
         <div class="profile">
-            <h3 href="/profile">Profile</h3>
+            <h3><a href="/profile" style="color: inherit; text-decoration: none;">Profile</a></h3>
             <img src="/images/profile.png" alt="Profile Picture">
         </div>
     </nav>
 
     <div class="container">
+        <h1>Welcome to CampusConnect</h1>
+        <p>Your one-stop solution for staying informed about campus recruitment opportunities.</p>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>Company Information</h3>
+                <p>Get detailed insights about companies visiting your campus, including eligibility and roles offered.</p>
+                <button onclick="window.location.href='/company-info'">Explore</button>
+            </div>
+            <div class="feature-card">
+                <h3>Recruitment Process</h3>
+                <p>Learn about recruitment stages, tips, and sample questions to prepare effectively.</p>
+                <button onclick="window.location.href='/recruitment-process'">Learn More</button>
+            </div>
+            <div class="feature-card">
+                <h3>Student Insights</h3>
+                <p>Read testimonials and advice from seniors and alumni to navigate your recruitment journey.</p>
+                <button onclick="window.location.href='/student-insights'">Read Insights</button>
+            </div>
+            <div class="feature-card">
+                <h3>Collaboration</h3>
+                <p>Join forums, interact with alumni, and access shared resources for better preparation.</p>
+                <button onclick="window.location.href='/collaboration'">Collaborate</button>
+            </div>
+        </div>
 
         <div class="branch-selector">
             <label for="branch">Select Branch:</label>
@@ -159,5 +235,9 @@
             window.location.href = `/branch/${branch}`;
         }
     </script>
+     <footer class="footer">
+        <p>@Developed by Vinay, Vivek & Venkat.</p>
+    </footer>
+
 </body>
 </html>
