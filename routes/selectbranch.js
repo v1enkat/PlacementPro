@@ -4,7 +4,7 @@ const path=require("path");
 
 const router = express.Router();
 
-router.get("/branch/:dep", async (req, res) => {
+router.get("selectbranch/branch/:dep", async (req, res) => {
   const { dep } = req.params;
   try {
       const cmps = await Company.findAll({
@@ -16,7 +16,7 @@ router.get("/branch/:dep", async (req, res) => {
       });
 
       return res.render("branch", {
-          cmps
+        cmps
       });
   } catch (error) {
       console.error("Error fetching company details:", error);
