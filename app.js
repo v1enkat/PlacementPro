@@ -34,6 +34,10 @@ app.use("/student",studentRouter);
 app.use("/createcompany",createcompany);
 app.use("/login",login);
 app.use("/branch",branch);
+app.use("/index",index);
+app.use("/selectbranch",selectbranch);
+
+
 
 
 
