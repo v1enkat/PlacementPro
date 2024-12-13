@@ -15,7 +15,7 @@ const branchModelMap = {
     CSE: cseModel,
     ECE: eceModel,
     MECH: mechModel,
-};
+}; // creating all the models as array.
 
 
 
@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
 
         // Parse branches and find respective models
         const branchList = Array.isArray(Branches) ? Branches : Branches.split(",").map((b) => b.trim());
-        const models = getModelsForBranches(branchList);
+        const models = getModelsForBranches(branchList); // getting models for all the branches in the string.
 
         if (models.length === 0) {
             return res.status(400).json({ message: "Invalid branches specified" });
@@ -74,7 +74,7 @@ router.post("/", async (req, res) => {
                 LastDate,
                 Status,
             });
-            const savedCompany = await newCompany.save();
+            const savedCompany = await newCompany.save(); 
             results.push(savedCompany);
         }
 

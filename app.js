@@ -8,6 +8,8 @@ const app = express();
 
 //requiring all the model's-->
 const studentModel = require(path.join(__dirname, "models", "student-model"));
+// requiring middleware-->
+const isloggedin=require(path.join(__dirname,"middlewares","isloggedin"));
 
 // requiring all the routes's-->
 const index = require(path.join(__dirname, "routes", "index"));
@@ -16,6 +18,7 @@ const createcompany = require(path.join(__dirname, "routes", "createcompany"));
 const login = require(path.join(__dirname, "routes", "login"));
 const branch = require(path.join(__dirname, "routes", "branch"));
 const selectbranch = require(path.join(__dirname, "routes", "selectbranch"));
+const profile = require(path.join(__dirname, "routes", "profile"));
 
 
 
@@ -36,6 +39,7 @@ app.use("/login",login);
 app.use("/branch",branch);
 app.use("/index",index);
 app.use("/selectbranch",selectbranch);
+app.use("/profile",isloggedin,profile);
 
 
 
@@ -56,6 +60,7 @@ mongoose.connect(process.env.MONGO_URI)
           websiteText: "NIT Agartala"
         });
       });
+      
       
  
 const PORT = process.env.PORT || 5000;
