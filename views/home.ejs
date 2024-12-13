@@ -171,6 +171,33 @@
             margin: 0;
             font-size: 1rem;
         }
+        /* CSS for branchLink */
+#branchLink {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background-color: #007BFF; /* Blue background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+/* Hover effect */
+#branchLink:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Active or clicked state */
+#branchLink:active {
+    background-color: #003f7f; /* Even darker blue */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow */
+    transform: scale(0.95); /* Slightly shrink */
+}
+
     </style>
 </head>
 <body>
@@ -217,25 +244,28 @@
 
         <div class="branch-selector">
             <label for="branch">Select Branch:</label>
-            <select id="branch" name="branch" onchange="updateLink()">
-                <option value="CSE">Computer Science</option>
-                <option value="ECE">Electronics and Communication</option>
-                <option value="MECH">Mechanical Engineering</option>
-                <option value="CIVIL">Civil Engineering</option>
-                <option value="EE">Electrical Engineering</option>
-                <option value="BIO">BioEngineering</option>
+            <select id="branch" name="branch" onchange="goToBranch()">
+                <option value="cse">Computer Science</option>
+                <option value="ece">Electronics and Communication</option>
+                <option value="mech">Mechanical Engineering</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="ee">Electrical Engineering</option>
+                <option value="bio">BioEngineering</option>
             </select>
-            <!-- Default href to the first option -->
             <a id="branchLink" href="/branch/cse">Go</a>
         </div>
-    </div>
-    
-    <script>
-        function updateLink() {
-            const branch = document.getElementById('branch').value;
-            const link = document.getElementById('branchLink');
-            link.href = `/branch/${branch}`;
-        }
-    </script>
+        
+        <script>
+            function goToBranch() {
+                const branch = document.getElementById('branch').value;
+                const link = document.getElementById('branchLink');
+                link.href = `/branch/${branch}`;
+            }
+        </script>
+        
+     <footer class="footer">
+        <p>@Developed by Vinay, Vivek & Venkat.</p>
+    </footer>
+
 </body>
 </html>

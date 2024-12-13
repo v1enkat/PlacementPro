@@ -15,4 +15,4 @@ const studentSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("users",studentSchema);
+module.exports = mongoose.model("users",studentSchema); // users is the model .

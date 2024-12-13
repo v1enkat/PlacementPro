@@ -1,4 +1,4 @@
-const userModel = require("../PlacementPro/models/user-model")
+const userModel = require("../models/student-model")
 const jwt = require("jsonwebtoken");
 
 module.exports = async function (req,res,next) {
