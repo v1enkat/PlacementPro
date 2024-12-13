@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Companies</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome">
+            <h1 id="welcome1">Welcome Vinay!</h1>
+        </section>
+
+        <section class="user-info">
+            <ul>
+                <li><strong>Enrollment No:</strong> 22UCS133</li>
+                <li><strong>Branch:</strong> CSE</li>
+                <li><strong>Role of Interest:</strong> SDE</li>
+            </ul>
+        </section>
+
+        <section id="companies" class="container4">
+            <h2>Top Companies</h2>
+            <div class="box">
+                <div class="scroll-container">
+                    <% if (cmps && cmps.length > 0) { %>
+                        <% cmps.forEach(comp => { %>
+                            <div class="company-box">
+                                <h3><%= comp.CompanyName %></h3>
+                                <p><strong>Last Date:</strong> <%= comp.LastDate %></p>
+                                <p><strong>Status:</strong> <span class="active"><%= comp.Status %></span></p>
+                                <p><strong>Dream Tier:</strong> <%= comp.criteria %></p>
+                                <p><strong>Role:</strong> <span class="placement"><%= comp.Role %></span></p>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <p>No companies available at the moment.</p>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 NIT Agartala. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

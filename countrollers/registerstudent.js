@@ -25,7 +25,7 @@ module.exports.registerstudent = async function (req, res) {
                 });
                 let token = generatetoken(user);
                 res.cookie("token", token);
-                res.send("you signed up sucessfully"); 
+                res.redirect("/index");
             }); 
         });
 
@@ -60,6 +60,6 @@ module.exports.logout = async function (req, res) {
         if (err) {
             return res.status(500).send("Could not log out.");
         }
-        res.send("logged in sucessful");
+        res.redirect("/index");
     });
 };
