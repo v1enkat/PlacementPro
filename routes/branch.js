@@ -26,6 +26,7 @@ router.get('/:id', async (req, res) => {
         if (!branchModel) {
             return res.status(404).send('Branch not found');
         }
+        
 
        
         const cmps = await branchModel.find(); 
