@@ -12,6 +12,8 @@ const studentSchema = mongoose.Schema({
     email: String,
     Enumber:String,
     password: String,
+    place:String,
+    domain:String
 
 });
 

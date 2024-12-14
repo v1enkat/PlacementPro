@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Your Details</title>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <div class="container px-10 py-20 flex flex-grow">
+         
+            <main class="w-3/4 bg-white p-8 shadow ml-4">
+                <h2 class="text-xl font-bold mb-4">Complete Your Profile</h2>
+                <form  action="/profile/upload/<%= user._id %>" method="post" enctype="multipart/form-data">
+                    <div class="mb-6">
+                        
+                        <div class="mb-4">
+                            <label class="block mb-2 font-medium">Upload Your Image</label>
+                            <input name="image" type="file" required>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input name="Enumber" type="text" placeholder="Your Enrollment number"
+                                class="border p-2 rounded w-full" required>
+                            <input name="place" type="text" placeholder="Place"
+                                class="border p-2 rounded w-full" required>
+                                <input name="domain" type="text" placeholder="domain"
+                                class="border p-2 rounded w-full" required>
+                           
+                                <input name="batch" type="number" placeholder="Batch"
+                                class="border p-2 rounded w-full">
+                        </div>
+                        
+                    </div>
+                    <input class="px-5 py-2 rounded mt-3 bg-blue-500 text-white" type="submit"
+                        value="SubMit">
+                </form>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
