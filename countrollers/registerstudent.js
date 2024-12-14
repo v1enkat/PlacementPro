@@ -24,6 +24,7 @@ module.exports.registerstudent = async function (req, res) {
                     batch
                 });
                 let token = generatetoken(user);
+                console.log(token);
                 res.cookie("token", token);
                 res.redirect("/index");
             }); 

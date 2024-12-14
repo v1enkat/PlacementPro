@@ -61,6 +61,10 @@ mongoose.connect(process.env.MONGO_URI)
         });
       });
       
+      app.get("/logout",(req,res)=>{
+        return res.clearCookie("token").redirect("/");
+      })
+      
       
  
 const PORT = process.env.PORT || 5000;
