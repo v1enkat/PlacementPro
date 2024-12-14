@@ -100,7 +100,7 @@
 </head>
 <body>
     <div class="profile-container">
-     
+        <img src="data:image/jpeg;base64,<%= user.image.toString('base64') %>" alt="Profile Picture" class="profile-photo">
         <div class="profile-name"><%= user.name %></div>
         <div class="profile-info"><strong>Enrollment Number:</strong> <%= user.Enumber %></div>
         <div class="profile-info"><strong>Branch:</strong> <%= user.branch %></div>
