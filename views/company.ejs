@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= company.CompanyName %> Details</title>
+    <link rel="stylesheet" href="./stylesheets/company.css">
+    <style>
+        #img-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 200px;
+}
+
+#container1 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    background-color: ghostwhite;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+h1 {
+    text-decoration: underline;
+}
+
+p {
+    font-size: 25px;
+    font-weight: 520;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #3E7CB1;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: all 0.1s ease;
+    /* Smooth transition for effects */
+}
+
+a:hover {
+
+    transform: scale(1.1);
+    /* Slightly enlarge the button */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    /* Deeper shadow on hover */
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    background-color: ghostwhite;
+    height: 600px;
+    padding-left: 40px;
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 0px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+span {
+    color: white;
+    padding: 7px;
+    background-color: green;
+}
+    </style>
+</head>
+
+<body>
+    <div id="img-container">
+        <img src="<%= company.ImageUrl || '' %>" alt="<%= company.CompanyName %> logo">
+    </div>
+    <div id="container1" class="box">
+        <h1 style="text-decoration: none;"><%= company.CompanyName %></h1>
+        <p><%= company.Description %></p>
+    </div>
+    <div id="container" class="box">
+        <h2>Role: <%= company.Role %></h2>
+        <h2>FTE/Summer Intern: <%= company.Type || 'N/A' %></h2>
+        <h2>Location: <%= company.Location %></h2>
+        <h2>Email: <%= company.Email %></h2>
+        <h2>CGPA Requirement: Above 6.0</h2>
+        <h2>Website: <a href="<%= company.Website %>" target="_blank"><%= company.CompanyName %></a></h2>
+        <h2>Package: <%= company.Package %> LPA</h2>
+        <h2>Last Date: <%= company.LastDate.toDateString() %></h2>
+        <h2>Status: <span><%= company.Status %></span></h2>
+    </div>
+</body>
+
+</html>

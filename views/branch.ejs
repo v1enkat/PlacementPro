@@ -90,6 +90,10 @@
             padding: 1rem;
             margin-top: 2rem;
         }
+        .main{
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 
@@ -106,6 +110,9 @@
     </header>
 
     <main>
+        <section id="main">
+            <h1 id="main"><%= branch %> Branch Visited Companys</h1>
+        </section>
         <section id="welcome">
             <h1 id="welcome1">Welcome, Vinay!</h1>
         </section>
@@ -125,7 +132,11 @@
                     <% if (cmps && cmps.length > 0) { %>
                         <% cmps.forEach(comp => { %>
                             <div class="company-box">
-                                <h3><%= comp.CompanyName %></h3>
+                                <h3>
+                                    <a href="/company/<%= branch %>/<%= comp._id %>">
+                                        <%= comp.CompanyName %>
+                                    </a>
+                                </h3>
                                 <p><strong>Last Date:</strong> <%= comp.LastDate %></p>
                                 <p><strong>Status:</strong> <span class="active"><%= comp.Status %></span></p>
                                 <p><strong>Dream Tier:</strong> <%= comp.criteria %></p>
@@ -135,6 +146,8 @@
                     <% } else { %>
                         <p>No companies available at the moment.</p>
                     <% } %>
+                </div>
+                
                 </div>
             </div>
         </section>

@@ -18,11 +18,11 @@ router.get("/update",isloggedin,async (req,res)=>{
   res.render("updatedetails",{user});
 });
 
-
+ 
 
 router.post("/upload/:id", upload.single("image"), async (req, res) => {
   try {
-    let { image, Enumber,place,batch, domain } = req.body;
+    let { } = req.body;
       const userId = req.params.id; // Get user ID from the URL
       const user = await userModel.findById(userId);
 

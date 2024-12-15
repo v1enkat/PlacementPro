@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const civilModel = require("../models/civil");
 const bioModel = require("../models/bio");
 const chemicalModel = require("../models/chemical");
@@ -6,7 +6,6 @@ const cseModel = require("../models/cse");
 const eceModel = require("../models/ece");
 const mechModel = require("../models/mech");
 const eeModel = require("../models/ee");
-
 const router = express.Router();
 
 const branchModels = {    
@@ -16,28 +15,27 @@ const branchModels = {
     CSE: cseModel,
     ECE: eceModel,
     Mechanical: mechModel,
-    Electrical:eeModel,
-}; // creating array of all models.
+    Electrical: eeModel,
+};
 
-router.get('/:id', async (req, res) => {
+router.get("/:branch/:id", async (req, res) => {
+    const { branch, id } = req.params;
+
     try {
-        const branch = req.params.id; 
+        // Access the correct model using the branch parameter
+        const Model = branchModels[branch];
 
-       
-        const branchModel = branchModels[branch]; // Getting model for the branch selected.
-        if (!branchModel) {
-            return res.status(404).send('Branch not found');
+        if (!Model) {
+            return res.status(404).send("Branch Lendu ra ungaa");
         }
-        
 
-        
-        const cmps = await branchModel.find(); // Taking all companies in that model
+        const company = await Model.findById(id);
 
        
-        res.render('branch', { cmps,branch });
+        res.render("company", { company, branch });
     } catch (error) {
-        console.error(error); 
-        res.status(500).send('Server Error');
+        console.error(error);
+        res.status(500).send("Server error");
     }
 });
 

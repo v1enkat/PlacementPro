@@ -19,6 +19,7 @@ const login = require(path.join(__dirname, "routes", "login"));
 const branch = require(path.join(__dirname, "routes", "branch"));
 const selectbranch = require(path.join(__dirname, "routes", "selectbranch"));
 const profile = require(path.join(__dirname, "routes", "profile"));
+const comany = require(path.join(__dirname, "routes", "company"));
 
 
 
@@ -40,6 +41,7 @@ app.use("/branch",branch);
 app.use("/index",index);
 app.use("/selectbranch",selectbranch);
 app.use("/profile",isloggedin,profile);
+app.use("/company",comany);
 
 
 
