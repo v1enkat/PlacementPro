@@ -5,16 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Company</title>
     <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling to give spacing from top */
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            background-color: #f4f4f4;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;  /* Align items at the top */
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Navbar adjustments */
+        nav {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Create space below the navbar */
+        .main-content {
+            margin-top: 80px; /* Add space to avoid overlap with the navbar */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Form container styling */
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
             max-width: 600px;
         }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
         label {
             display: block;
             margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
         }
+
         input, textarea, select {
             width: 100%;
             padding: 10px;
@@ -22,6 +84,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         button {
             background-color: #4CAF50;
             color: white;
@@ -29,59 +92,66 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%;
         }
+
         button:hover {
             background-color: #45a049;
         }
     </style>
-  
+    <link rel="stylesheet" href="../stylesheets/branch.css">
     <link rel="stylesheet" href="../stylesheets/navbar.css">
 </head>
 <body>
-    <%- include('partials/navbar') %>
-    <h1>Create New Company</h1>
-    <form id="companyForm" action="/createcompany" method="POST">
-        <label for="CompanyName">Company Name:</label>
-        <input type="text" id="CompanyName" name="CompanyName" required>
+    <%- include('partials/navbar', { user: user }) %>
 
-        <label for="CompanyCode">Company Code:</label>
-        <input type="text" id="CompanyCode" name="CompanyCode" required>
+    <div class="main-content">
+        <div class="form-container">
+            <h1>Create New Company</h1>
+            <form id="companyForm" action="/createcompany" method="POST">
+                <label for="CompanyName">Company Name:</label>
+                <input type="text" id="CompanyName" name="CompanyName" required>
 
-        <label for="Branches">Branches (comma-separated):</label>
-        <input type="text" id="Branches" name="Branches" placeholder="ECE, CSE, IT" required>
+                <label for="CompanyCode">Company Code:</label>
+                <input type="text" id="CompanyCode" name="CompanyCode" required>
 
-        <label for="Role">Role:</label>
-        <input type="text" id="Role" name="Role">
+                <label for="Branches">Branches (comma-separated):</label>
+                <input type="text" id="Branches" name="Branches" placeholder="ECE, CSE, IT" required>
 
-        <label for="Description">Description:</label>
-        <textarea id="Description" name="Description" rows="4"></textarea>
+                <label for="Role">Role:</label>
+                <input type="text" id="Role" name="Role">
 
-        <label for="Location">Location:</label>
-        <input type="text" id="Location" name="Location">
+                <label for="Description">Description:</label>
+                <textarea id="Description" name="Description" rows="4"></textarea>
 
-        <label for="Email">Email:</label>
-        <input type="email" id="Email" name="Email">
+                <label for="Location">Location:</label>
+                <input type="text" id="Location" name="Location">
 
-        <label for="Website">Website:</label>
-        <input type="url" id="Website" name="Website">
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" name="Email">
 
-        <label for="Package">Package:</label>
-        <input type="number" id="Package" name="Package" step="0.01">
+                <label for="Website">Website:</label>
+                <input type="url" id="Website" name="Website">
 
-        <label for="Applied">Applied:</label>
-        <input type="number" id="Applied" name="Applied">
+                <label for="Package">Package:</label>
+                <input type="number" id="Package" name="Package" step="0.01">
 
-        <label for="LastDate">Last Date:</label>
-        <input type="date" id="LastDate" name="LastDate">
+                <label for="Applied">Applied:</label>
+                <input type="number" id="Applied" name="Applied">
 
-        <label for="Status">Status:</label>
-        <select id="Status" name="Status">
-            <option value="Active" selected>Active</option>
-            <option value="Inactive">Inactive</option>
-        </select>
+                <label for="LastDate">Last Date:</label>
+                <input type="date" id="LastDate" name="LastDate">
 
-        <button type="submit">Submit</button>
-    </form>
+                <label for="Status">Status:</label>
+                <select id="Status" name="Status">
+                    <option value="Active" selected>Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <script>
         // Convert the comma-separated branches into an array before submitting
@@ -110,6 +180,5 @@
             .catch(error => alert(`Error: ${error}`));
         });
     </script>
-
 </body>
 </html>

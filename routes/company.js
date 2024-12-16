@@ -6,6 +6,8 @@ const cseModel = require("../models/cse");
 const eceModel = require("../models/ece");
 const mechModel = require("../models/mech");
 const eeModel = require("../models/ee");
+const isloggedin = require('../middlewares/isloggedin');
+const userModel=require('../models/student-model');
 const router = express.Router();
 
 const branchModels = {    
@@ -18,7 +20,7 @@ const branchModels = {
     Electrical: eeModel,
 };
 
-router.get("/:branch/:id", async (req, res) => {
+router.get("/:branch/:id",isloggedin, async (req, res) => {
     const { branch, id } = req.params;
 
     try {
@@ -28,11 +30,13 @@ router.get("/:branch/:id", async (req, res) => {
         if (!Model) {
             return res.status(404).send("Branch Lendu ra ungaa");
         }
+        const email=req.user.email;
+       const user=await userModel.findOne({email:email});
 
         const company = await Model.findById(id);
 
        
-        res.render("company", { company, branch });
+        res.render("company", { company, branch,user });
     } catch (error) {
         console.error(error);
         res.status(500).send("Server error");

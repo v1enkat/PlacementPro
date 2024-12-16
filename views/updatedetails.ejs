@@ -5,29 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update Your Details</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
+    /* Reset some default styles */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
       padding: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
-      color: #333;
     }
 
+    /* Navbar styling */
+    nav {
+      width: 100%;
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Create space below the navbar */
+    .main-content {
+      margin-top: 80px; /* Add space to avoid overlap with the navbar */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    /* Container for the form */
     .container {
       width: 90%;
       max-width: 800px;
       background: #fff;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
       padding: 20px;
     }
 
+    /* Heading styling */
     h2 {
       text-align: center;
       font-size: 2rem;
@@ -35,17 +71,20 @@
       margin-bottom: 20px;
     }
 
+    /* Form styling */
     form {
       display: flex;
       flex-direction: column;
     }
 
+    /* Label styling */
     label {
       font-size: 1rem;
       color: #555;
       margin-bottom: 5px;
     }
 
+    /* Input styling */
     input[type="text"], input[type="file"], input[type="number"] {
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -54,6 +93,7 @@
       width: calc(100% - 22px);
     }
 
+    /* Submit button styling */
     input[type="submit"] {
       background: #4facfe;
       color: #fff;
@@ -69,6 +109,7 @@
       background: #0084fe;
     }
 
+    /* Grid styling for inputs */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -79,40 +120,47 @@
       width: 100%;
     }
 
+    /* Media query for smaller screens */
     @media (max-width: 768px) {
       .grid {
         grid-template-columns: 1fr;
       }
     }
   </style>
- 
+
+  <link rel="stylesheet" href="../stylesheets/branch.css">
   <link rel="stylesheet" href="../stylesheets/navbar.css">
 </head>
 <body>
-  <%- include('partials/navbar') %>
-  <div class="container">
-    <h2>Complete Your Profile</h2>
-    <form action="/profile/upload/<%= user._id %>" method="post" enctype="multipart/form-data">
-      <div>
-        <label for="image">Upload Your Image</label>
-        <input id="image" name="image" type="file" required>
-      </div>
-      <div class="grid">
-        <div>
-          <input name="Enumber" type="text" placeholder="Your Enrollment number" required>
+
+    <%- include('partials/navbar') %>
+
+    <div class="main-content">
+        <div class="container">
+          <h2>Complete Your Profile</h2>
+          <form action="/profile/upload/<%= user._id %>" method="post" enctype="multipart/form-data">
+            <div>
+              <label for="image">Upload Your Image</label>
+              <input id="image" name="image" type="file" required>
+            </div>
+            <div class="grid">
+              <div>
+                <input name="Enumber" type="text" placeholder="Your Enrollment number" required>
+              </div>
+              <div>
+                <input name="place" type="text" placeholder="Place" required>
+              </div>
+              <div>
+                <input name="domain" type="text" placeholder="Domain" required>
+              </div>
+              <div>
+                <input name="batch" type="number" placeholder="Batch">
+              </div>
+            </div>
+            <input type="submit" value="Submit">
+          </form>
         </div>
-        <div>
-          <input name="place" type="text" placeholder="Place" required>
-        </div>
-        <div>
-          <input name="domain" type="text" placeholder="Domain" required>
-        </div>
-        <div>
-          <input name="batch" type="number" placeholder="Batch">
-        </div>
-      </div>
-      <input type="submit" value="Submit">
-    </form>
-  </div>
+    </div>
+
 </body>
 </html>

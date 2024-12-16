@@ -6,6 +6,8 @@ const chemicalModel = require("../models/chemical");
 const cseModel = require("../models/cse");
 const eceModel = require("../models/ece");
 const mechModel = require("../models/mech");
+const isloggedin = require('../middlewares/isloggedin');
+const userModel=require('../models/student-model');
 
 // Map branch names to their respective models
 const branchModelMap = {
@@ -27,8 +29,10 @@ const getModelsForBranches = (branches) => {
 };
 
 // Render form (if necessary)
-router.get("/", (req, res) => {
-    res.render("createcompany");
+router.get("/",isloggedin, async(req, res) => {
+    const email=req.user.email;
+    const user=await userModel.findOne({email:email});
+    res.render("createcompany",{user});
 });
 
 // Handle form submission

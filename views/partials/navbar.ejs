@@ -8,6 +8,6 @@
     </ul>
     <div class="profile">
         <h3><a href="/profile" style="color: inherit; text-decoration: none;">Profile</a></h3>
-        <a href="/profile"><img src="/images/profile.png" alt="Profile Picture"></a>
+        <a href="/profile"><img src="data:image/jpeg;base64,<%= user.image.toString('base64') %>" alt="Profile Picture" class="profile-photo"></a>
     </div>
 </nav>

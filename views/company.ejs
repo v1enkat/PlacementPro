@@ -85,6 +85,7 @@ span {
 </head>
 
 <body>
+    <%- include('partials/navbar',{user:user}) %>
     <div id="img-container">
         <img src="<%= company.ImageUrl || '' %>" alt="<%= company.CompanyName %> logo">
     </div>

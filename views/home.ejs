@@ -10,12 +10,19 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
         nav {
             background-color: #2b84f9;
             color: #fff;
             padding: 10px 20px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -34,7 +41,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 20px;
+            gap: 10px;
         }
 
         nav ul li {
@@ -67,31 +74,36 @@
         }
 
         .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 50px;
+            gap: 10px;
+            height: 85%;
+            padding: 10px;
+            width: 100%;
         }
 
         .container h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
             color: #333;
         }
 
         .features {
-            margin: 30px 0;
             display: flex;
             justify-content: center;
+            gap: 10px;
             flex-wrap: wrap;
-            gap: 20px;
         }
 
         .feature-card {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            width: 300px;
-            padding: 20px;
-            text-align: left;
+            width: 200px;
+            padding: 10px;
+            text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -104,6 +116,7 @@
         .feature-card h3 {
             color: #2b84f9;
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         .feature-card p {
@@ -112,9 +125,9 @@
         }
 
         .feature-card button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            font-size: 0.9rem;
+            margin-top: 5px;
+            padding: 8px;
+            font-size: 0.8rem;
             color: #fff;
             background-color: #007BFF;
             border: none;
@@ -128,81 +141,57 @@
         }
 
         .branch-selector {
-            margin-top: 74px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
         }
 
         .branch-selector label {
-            font-size: 1.2rem;
-            margin-right: 10px;
+            font-size: 1rem;
         }
 
         .branch-selector select {
-            padding: 10px;
-            font-size: 1rem;
+            padding: 5px;
+            font-size: 0.9rem;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
-        .branch-selector button {
-            padding: 10px 20px;
-            margin-left: 10px;
-            font-size: 1rem;
+        .branch-selector a {
+            padding: 8px 15px;
+            font-size: 0.9rem;
             color: #fff;
-            background-color: #28a745;
-            border: none;
+            background-color: #007BFF;
+            text-decoration: none;
             border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-        .branch-selector button:hover {
-            background-color: #218838;
+        .branch-selector a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
         }
+
+        .branch-selector a:active {
+            background-color: #003f7f;
+            transform: scale(0.95);
+        }
+
         .footer {
             background-color: #2b84f9;
             color: #fff;
             text-align: center;
-            padding: 18px;
-            position: absolute;
-            bottom: 0;
+            padding: 10px;
             width: 100%;
+            position: relative;
+            font-size: 0.9rem;
         }
-
-        .footer p {
-            margin: 0;
-            font-size: 1rem;
-        }
-        /* CSS for branchLink */
-#branchLink {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    background-color: #007BFF; /* Blue background */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
-}
-
-/* Hover effect */
-#branchLink:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-}
-
-/* Active or clicked state */
-#branchLink:active {
-    background-color: #003f7f; /* Even darker blue */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow */
-    transform: scale(0.95); /* Slightly shrink */
-}
-
     </style>
 </head>
 <body>
-    <%- include('partials/navbar') %>
+    <%- include('partials/navbar',{user:user}) %>
 
     <div class="container">
         <h1>Welcome to CampusConnect</h1>
@@ -210,23 +199,23 @@
 
         <div class="features">
             <div class="feature-card">
-                <h3>Company Information</h3>
-                <p>Get detailed insights about companies visiting your campus, including eligibility and roles offered.</p>
+                <h3>Company Info</h3>
+                <p>Detailed insights about companies.</p>
                 <button onclick="window.location.href='/company-info'">Explore</button>
             </div>
             <div class="feature-card">
                 <h3>Recruitment Process</h3>
-                <p>Learn about recruitment stages, tips, and sample questions to prepare effectively.</p>
+                <p>Learn recruitment stages and tips.</p>
                 <button onclick="window.location.href='/recruitment-process'">Learn More</button>
             </div>
             <div class="feature-card">
                 <h3>Student Insights</h3>
-                <p>Read testimonials and advice from seniors and alumni to navigate your recruitment journey.</p>
+                <p>Advice from seniors and alumni.</p>
                 <button onclick="window.location.href='/student-insights'">Read Insights</button>
             </div>
             <div class="feature-card">
                 <h3>Collaboration</h3>
-                <p>Join forums, interact with alumni, and access shared resources for better preparation.</p>
+                <p>Join forums and interact with alumni.</p>
                 <button onclick="window.location.href='/collaboration'">Collaborate</button>
             </div>
         </div>
@@ -244,18 +233,18 @@
             </select>
             <a id="branchLink" href="/branch/CSE">Go</a>
         </div>
-        
-        <script>
-            function goToBranch() {
-                const branch = document.getElementById('branch').value;
-                const link = document.getElementById('branchLink');
-                link.href = `/branch/${branch}`;
-            }
-        </script>
-        
-     <footer class="footer">
+    </div>
+
+    <footer class="footer">
         <p>@Developed by Vinay, Vivek & Venkat.</p>
     </footer>
 
+    <script>
+        function goToBranch() {
+            const branch = document.getElementById('branch').value;
+            const link = document.getElementById('branchLink');
+            link.href = `/branch/${branch}`;
+        }
+    </script>
 </body>
 </html>

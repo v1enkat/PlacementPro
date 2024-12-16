@@ -19,23 +19,55 @@
             background-color: #ffffff;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 400px;
+            width: 90%;
+            max-width: 800px;
             padding: 30px;
-            text-align: center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
             position: relative;
         }
 
+        .back-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #4d4d4d;
+            color: white;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button:hover {
+            background-color: #333333;
+        }
+
+        .back-button span {
+            margin-left: 5px;
+        }
+
         .profile-photo {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid #2b84f9;
+            border: 4px solid #2b84f9;
+        }
+
+        .profile-details {
+            flex: 1;
         }
 
         .profile-name {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
             color: #2b84f9;
             margin-bottom: 10px;
@@ -52,9 +84,10 @@
         }
 
         .buttons {
-            display: flex;
-            justify-content: space-between;
             margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .button {
@@ -65,6 +98,9 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
         }
 
         .button.update {
@@ -83,38 +119,50 @@
             background-color: #c82333;
         }
 
-        .footer {
-            background-color: #2b84f9;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
-            border-radius: 0 0 15px 15px;
+        .button.company {
+            background-color: #4d4d4d;
         }
 
-        .footer p {
-            margin: 0;
-            font-size: 0.9rem;
+        .button.company:hover {
+            background-color: #333333;
+        }
+
+        @media (max-width: 600px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-photo {
+                margin-bottom: 20px;
+            }
+
+            .buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
         }
     </style>
 </head>
 <body>
     <div class="profile-container">
+        <a href="/index" class="back-button">
+            &#8592; <span>Back</span>
+        </a>
         <img src="data:image/jpeg;base64,<%= user.image.toString('base64') %>" alt="Profile Picture" class="profile-photo">
-        <div class="profile-name"><%= user.name %></div>
-        <div class="profile-info"><strong>Enrollment Number:</strong> <%= user.Enumber %></div>
-        <div class="profile-info"><strong>Branch:</strong> <%= user.branch %></div>
-        <div class="profile-info"><strong>Email:</strong> <%= user.email %></div>
-        <div class="profile-info"><strong>Batch:</strong> <%= user.batch %></div>
-        <div class="profile-info"><strong>Domain:</strong> <%= user.domain %></div>
-
-        <div class="buttons">
-            <button class="button update" onclick="window.location.href='/profile/update'">Update Details</button>
-            <button class="button logout" onclick="window.location.href='/logout'">Logout</button>
-            <button class="button " style=" background-color: #4d4d4d;" onclick="window.location.href='/createcompany'">Update Company Details</button>
+        <div class="profile-details">
+            <div class="profile-name"><%= user.name %></div>
+            <div class="profile-info"><strong>Enrollment Number:</strong> <%= user.Enumber %></div>
+            <div class="profile-info"><strong>Branch:</strong> <%= user.branch %></div>
+            <div class="profile-info"><strong>Email:</strong> <%= user.email %></div>
+            <div class="profile-info"><strong>Batch:</strong> <%= user.batch %></div>
+            <div class="profile-info"><strong>Domain:</strong> <%= user.domain %></div>
+            <div class="buttons">
+                <button class="button update" onclick="window.location.href='/profile/update'">Update Details</button>
+                <button class="button logout" onclick="window.location.href='/logout'">Logout</button>
+                <button class="button company" onclick="window.location.href='/createcompany'">Update Company Details</button>
+            </div>
         </div>
-
-        
     </div>
 </body>
 </html>

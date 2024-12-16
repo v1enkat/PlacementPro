@@ -6,30 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="../stylesheets/branch.css">
-     <link rel="stylesheet" href="../stylesheets/navbar.css">
+    <link rel="stylesheet" href="../stylesheets/navbar.css">
 </head>
 
 <body>
- 
-        <%- include('partials/navbar') %>
-   
+
+    <!-- Navbar -->
+    <%- include('partials/navbar', { user: user }) %>
 
     <main>
+        <!-- Main Section -->
         <section id="main">
-            <h1 id="main"><%= branch %> Branch Visited Companys</h1>
-        </section>
-        <section id="welcome">
-            <h1 id="welcome1">Welcome, Vinay!</h1>
+            <h1 id="main"><%= branch %> Branch Visited Companies</h1>
         </section>
 
+        <!-- Welcome Section -->
+        <section id="welcome">
+            <h1 id="welcome1">Welcome, <%= user.fullname %>!</h1>
+        </section>
+
+        <!-- User Information -->
         <section class="user-info">
             <ul>
-                <li><strong>Enrollment No:</strong> 22UCS133</li>
-             
-                <li><strong>Role of Interest:</strong> SDE</li>
+                <li><strong>Enrollment No:</strong> <%= user.Enumber %></li>
+                <li><strong>Role of Interest:</strong> <%= user.domain %></li>
             </ul>
         </section>
 
+        <!-- Companies Section -->
         <section id="companies" class="container4">
             <h2>Top Companies</h2>
             <div class="box">
@@ -52,15 +56,15 @@
                         <p>No companies available at the moment.</p>
                     <% } %>
                 </div>
-                
-                </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 NIT Agartala. All Rights Reserved.</p>
     </footer>
+
 </body>
 
 </html>
