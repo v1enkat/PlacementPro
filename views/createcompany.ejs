@@ -34,9 +34,11 @@
             background-color: #45a049;
         }
     </style>
+  
+    <link rel="stylesheet" href="../stylesheets/navbar.css">
 </head>
 <body>
-
+    <%- include('partials/navbar') %>
     <h1>Create New Company</h1>
     <form id="companyForm" action="/createcompany" method="POST">
         <label for="CompanyName">Company Name:</label>

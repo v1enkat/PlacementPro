@@ -5,109 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <style>
-        /* Optional styles for better layout */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            background: #333;
-            color: #fff;
-            padding: 1rem;
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: space-around;
-            padding: 0;
-            margin: 0;
-        }
-
-        .navbar ul li {
-            display: inline;
-        }
-
-        .navbar ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-        }
-
-        .navbar ul li a:hover {
-            background: #555;
-            border-radius: 5px;
-        }
-
-        main {
-            padding: 2rem;
-        }
-
-        .user-info ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .user-info li {
-            margin: 0.5rem 0;
-        }
-
-        .container4 {
-            margin-top: 2rem;
-        }
-
-        .scroll-container {
-            max-height: 400px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            padding: 1rem;
-        }
-
-        .company-box {
-            border: 1px solid #ddd;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            border-radius: 5px;
-        }
-
-        .active {
-            color: green;
-            font-weight: bold;
-        }
-
-        .placement {
-            color: #007BFF;
-            font-weight: bold;
-        }
-
-        .footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-        .main{
-            display: flex;
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="../stylesheets/branch.css">
+     <link rel="stylesheet" href="../stylesheets/navbar.css">
 </head>
 
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Companies</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+ 
+        <%- include('partials/navbar') %>
+   
 
     <main>
         <section id="main">
@@ -120,7 +25,7 @@
         <section class="user-info">
             <ul>
                 <li><strong>Enrollment No:</strong> 22UCS133</li>
-                <li><strong>Branch:</strong> CSE</li>
+             
                 <li><strong>Role of Interest:</strong> SDE</li>
             </ul>
         </section>

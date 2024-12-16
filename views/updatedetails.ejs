@@ -85,8 +85,11 @@
       }
     }
   </style>
+ 
+  <link rel="stylesheet" href="../stylesheets/navbar.css">
 </head>
 <body>
+  <%- include('partials/navbar') %>
   <div class="container">
     <h2>Complete Your Profile</h2>
     <form action="/profile/upload/<%= user._id %>" method="post" enctype="multipart/form-data">

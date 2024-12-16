@@ -1,68 +1,41 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
 }
 
 .header {
-    background-color: #1c325b;
-    color: white;
-    padding: 20px 0;
+    background: #333;
+    color: #fff;
+    padding: 1rem;
 }
 
-.navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #1c325b;
-}
-
-.nav-links {
+.navbar ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    justify-content: space-around;
     padding: 0;
+    margin: 0;
 }
 
-.nav-links li {
-    padding: 10px 20px;
+.navbar ul li {
+    display: inline;
 }
 
-.nav-links a {
-    text-decoration: none;
+.navbar ul li a {
     color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: color 0.3s;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
 }
 
-.nav-links a:hover {
-    color: #f9f9f9;
+.navbar ul li a:hover {
+    background: #555;
+    border-radius: 5px;
 }
 
-#welcome {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-#welcome1 {
-    background-color: #d9eafd;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #1c325b;
-}
-
-.user-info {
-    background-color: white;
-    border-radius: 10px;
-    margin: 20px auto;
-    padding: 20px;
-    width: 80%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+main {
+    padding: 2rem;
 }
 
 .user-info ul {
@@ -71,87 +44,45 @@ body {
 }
 
 .user-info li {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    margin: 0.5rem 0;
 }
 
 .container4 {
-    padding: 20px;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 80%;
-    margin: 0 auto;
+    margin-top: 2rem;
 }
 
 .scroll-container {
-    width: 100%;
-    height: 300px; /* Set fixed height */
-    overflow-y: scroll;
-    border: 2px solid #1c325b;
-    border-radius: 10px;
-    padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 1rem;
 }
 
 .company-box {
-    background-color: #5e5b52;
-    color: #eefc57;
-    padding: 20px;
-    border-radius: 10px;
-    width: 100%;
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px 0;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
 }
 
-.company-box h3 {
-    margin: 0;
-    font-size: 24px;
+.active {
+    color: green;
+    font-weight: bold;
 }
 
-.company-box p {
-    margin: 5px 0;
-    font-size: 16px;
-}
-
-span.active {
-    background-color: #4caf50;
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-}
-
-span.inactive {
-    background-color: #f44336;
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-}
-
-span.placement {
-    background-color: #2196f3;
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-}
-
-span.internship {
-    background-color: #ff9800;
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
+.placement {
+    color: #007BFF;
+    font-weight: bold;
 }
 
 .footer {
+    background: #333;
+    color: #fff;
     text-align: center;
-    padding: 10px;
-    background-color: #1c325b;
-    color: white;
-    margin-top: 20px;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+.main{
+    display: flex;
+    justify-content: center;
 }

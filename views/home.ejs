@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusConnect</title>
+    <link rel="stylesheet" href="../public/stylesheets/navbar.css">
     <style>
         body {
             margin: 0;
@@ -201,19 +202,7 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">CampusConnect</div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-        <div class="profile">
-            <h3><a href="/profile" style="color: inherit; text-decoration: none;">Profile</a></h3>
-           <a href="/profile"> <img src="/images/profile.png" alt="Profile Picture"> </a>
-        </div>
-    </nav>
+    <%- include('partials/navbar') %>
 
     <div class="container">
         <h1>Welcome to CampusConnect</h1>
