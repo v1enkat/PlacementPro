@@ -17,7 +17,7 @@ module.exports = async function (req, res, next) {
             return res.redirect("/");
         }
 
-        req.user = user;
+        req.user = user; // This in imp..
         next();
     } catch (error) {
         console.error("Authentication error:", error);
